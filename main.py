@@ -76,14 +76,16 @@ while True:
         left_points += 1
         ball_rec.center = (400,212)
         ball_dir = "left"
+        ball_speed = 10
     if ball_rec.colliderect(leftwall_rec):
         right_points += 1
         ball_rec.center = (400,212)
         ball_dir = "right"
+        ball_speed = 10
 
     if paddel1_rec.colliderect(ball_rec):
         hits += 1
-        if ball_speed < 30:
+        if ball_speed < 20:
             ball_speed += (ball_speed*(hits/200))
         if key[pygame.K_a]:
             ball_dir = "upright"
@@ -97,7 +99,7 @@ while True:
             ball_dir = "right"
     if paddel2_rec.colliderect(ball_rec):
         hits += 1
-        if ball_speed < 30:
+        if ball_speed < 20:
             ball_speed += (ball_speed*(hits/300))
         if key[pygame.K_RIGHT]:
             ball_dir = "downleft"
@@ -136,7 +138,7 @@ while True:
         if ball_rec.colliderect(roof_rec):
             ball_dir = "downleft"
 
-    print(str(left_points)+" | "+str(right_points))
+    print(ball_speed)
     #apaddel1_rec.y = ball_rec.y
     #paddel2_rec.y = ball_rec.y
 
